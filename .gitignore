@@ -1,0 +1,16 @@
+# Local .terraform folder
+**/.terraform/*
+
+# .tfstate files (These contain sensitive info, keep them out of GitHub)
+*.tfstate
+*.tfstate.*
+
+# Crash log files
+crash.log
+
+# Ignore variables file if it contains secrets
+terraform.tfvars
+*.override.tf
+
+# Ignore provider binaries
+.terraform.lock.hcl
