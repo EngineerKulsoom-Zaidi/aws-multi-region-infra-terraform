@@ -16,9 +16,10 @@ module "vpc_us_east" {
   providers = {
     aws = aws.us_east_1
   }
-  vpc_cidr = "10.1.0.0/16"
-  vpc_name = "Primary-VPC-US"
-  region   = "us-east-1"
+  vpc_cidr           = "10.1.0.0/16"
+  vpc_name           = "Primary-VPC-US"
+  region             = "us-east-1"
+  public_subnet_cidr = "10.1.1.0/24" 
 }
 
 # VPC in AP-South-1
@@ -27,7 +28,8 @@ module "vpc_ap_south" {
   providers = {
     aws = aws.ap_south_1
   }
-  vpc_cidr = "10.2.0.0/16"
-  vpc_name = "Secondary-VPC-India"
-  region   = "ap-south-1"
+  vpc_cidr           = "10.2.0.0/16"
+  vpc_name           = "Secondary-VPC-India"
+  region             = "ap-south-1"
+  public_subnet_cidr = "10.2.1.0/24" 
 }
