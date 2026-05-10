@@ -20,20 +20,20 @@ resource "aws_internet_gateway" "igw" {
 resource "aws_subnet" "public" {
   vpc_id                  = aws_vpc.main.id
   cidr_block              = var.public_subnet_cidr
-  map_public_ip_on_launch = true # This makes it "Public"
+  map_public_ip_on_launch = true 
 
   tags = {
     Name = "${var.vpc_name}-public-subnet"
   }
 }
 
-# 2. The Route Table (The Map)
+# 2. The Route Table 
 resource "aws_route_table" "public" {
   vpc_id = aws_vpc.main.id
 
   route {
-    cidr_block = "0.0.0.0/0" # Send all traffic...
-    gateway_id = aws_internet_gateway.igw.id # ...to the Internet
+    cidr_block = "0.0.0.0/0" 
+    gateway_id = aws_internet_gateway.igw.id 
   }
 
   tags = {
@@ -41,7 +41,7 @@ resource "aws_route_table" "public" {
   }
 }
 
-# 3. The Association (Connecting the Map to the Subnet)
+# 3 The Association 
 resource "aws_route_table_association" "public" {
   subnet_id      = aws_subnet.public.id
   route_table_id = aws_route_table.public.id
